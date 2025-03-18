@@ -1,0 +1,73 @@
+-- Code giao diện Andz Hub (màu xanh-đen, logo mới)
+local ScreenGui = Instance.new("ScreenGui")
+local MainFrame = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local CloseButton = Instance.new("TextButton")
+local TabsFrame = Instance.new("Frame")
+local Tab1 = Instance.new("TextButton")
+local Tab2 = Instance.new("TextButton")
+local Tab3 = Instance.new("TextButton")
+local Tab4 = Instance.new("TextButton")
+
+-- Cấu hình GUI
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+MainFrame.Parent = ScreenGui
+MainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Màu nền đen
+MainFrame.BorderSizePixel = 2
+MainFrame.BorderColor3 = Color3.fromRGB(0, 255, 0) -- Viền xanh
+MainFrame.Position = UDim2.new(0.3, 0, 0.2, 0)
+MainFrame.Size = UDim2.new(0, 500, 0, 400)
+
+Title.Parent = MainFrame
+Title.BackgroundTransparency = 1
+Title.Size = UDim2.new(1, 0, 0, 50)
+Title.Font = Enum.Font.GothamBold
+Title.Text = "Nhân Dz Hub"
+Title.TextColor3 = Color3.fromRGB(0, 255, 0) -- Chữ xanh
+Title.TextSize = 22
+
+CloseButton.Parent = MainFrame
+CloseButton.Position = UDim2.new(0.9, 0, 0, 10)
+CloseButton.Size = UDim2.new(0, 40, 0, 40)
+CloseButton.Text = "X"
+CloseButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0) -- Nút đỏ
+CloseButton.MouseButton1Click:Connect(function()
+    ScreenGui:Destroy()
+end)
+
+TabsFrame.Parent = MainFrame
+TabsFrame.Size = UDim2.new(1, 0, 0, 40)
+TabsFrame.Position = UDim2.new(0, 0, 0, 60)
+
+Tab1.Parent = TabsFrame
+Tab1.Size = UDim2.new(0.25, 0, 1, 0)
+Tab1.Text = "Item Farm"
+Tab1.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+
+Tab2.Parent = TabsFrame
+Tab2.Position = UDim2.new(0.25, 0, 0, 0)
+Tab2.Size = UDim2.new(0.25, 0, 1, 0)
+Tab2.Text = "Sea Events"
+Tab2.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+
+Tab3.Parent = TabsFrame
+Tab3.Position = UDim2.new(0.5, 0, 0, 0)
+Tab3.Size = UDim2.new(0.25, 0, 1, 0)
+Tab3.Text = "Race V4"
+Tab3.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+
+Tab4.Parent = TabsFrame
+Tab4.Position = UDim2.new(0.75, 0, 0, 0)
+Tab4.Size = UDim2.new(0.25, 0, 1, 0)
+Tab4.Text = "Visual"
+Tab4.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+
+-- Thêm logo
+local Logo = Instance.new("ImageLabel")
+Logo.Parent = MainFrame
+Logo.Position = UDim2.new(0.02, 0, 0.02, 0)
+Logo.Size = UDim2.new(0, 50, 0, 50)
+Logo.Image = "rbxassetid://121798282953737" -- Logo mới
+
+print("Giao diện Andz Hub (màu xanh-đen) đã hoàn thành!")
