@@ -1,0 +1,63 @@
+local v1 = {}
+
+function v1:CreateWindow(v2)
+    local v3 = {
+        Name = v2.Title or "Hub",
+        MinimizeKey = v2.MinimizeKey or Enum.KeyCode.End,
+        DebugPanel = nil,
+        Tabs = {}
+    }
+
+    -- Key System
+    local v4 = "KEY123"
+    local v5 = 0
+
+    function v3:CheckKey(v6)
+        if v6 == v4 then
+            return true
+        else
+            v5 = v5 + 1
+            if v5 == 1 then
+                warn("⚠ Warning: Incorrect Key! (Attempt 1)")
+            elseif v5 == 2 then
+                game.Players.LocalPlayer:Kick("❌ Incorrect Key entered twice!")
+            end
+            return false
+        end
+    end
+
+    -- Debug Panel
+    function v3:CreateDebug(v7)
+        local v8 = {
+            Name = v7.Name or "Debug",
+            Position = v7.Position or "TopRight",
+            Color = v7.Color or Color3.fromRGB(0, 162, 255),
+            Data = v7.Data or {}
+        }
+        v3.DebugPanel = v8
+    end
+
+    -- Add Tabs
+    function v3:AddTab(v9)
+        local v10 = { Title = v9.Title or "Tab", Sections = {} }
+        table.insert(v3.Tabs, v10)
+        return v10
+    end
+
+    -- UI Buttons
+    function v3:Close()
+        warn("❌ UI Closed")
+    end
+
+    function v3:Minimize()
+        warn("➖ UI Minimized")
+    end
+
+    function v3:Exit()
+        game:Shutdown()
+    end
+
+    return v3
+end
+
+return v1
